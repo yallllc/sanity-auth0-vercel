@@ -1,0 +1,21 @@
+{
+  "Scaffold Sanity Schema": {
+    "prefix": "sans",
+    "body": [
+      "export default {",
+      "  name: '${1:${TM_FILENAME_BASE}}',",
+      "  title: '${2:${TM_FILENAME_BASE/(^[a-zA-Z])/${1:/upcase}/}}',",
+      "  type: 'document',",
+      "  fields: [",
+      "    $0",
+      "  ]",
+      "}"
+    ],
+    "description": "Create base markup for new schema"
+  },
+  "Sanity Field Schema": {
+    "prefix": "sanity field",
+    "body": ["{", "  title: '$1',", "  name: '$1',", "  type: '$2'", "}"],
+    "description": "Create base markup for sanity field, accepted types: Text, Block, Boolean, Date, Datetime, File, Geopoint, Image, Number, Object, Reference, Slug, String, Array, URL"
+  }
+}

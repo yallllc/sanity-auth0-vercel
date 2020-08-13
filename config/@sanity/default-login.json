@@ -1,0 +1,13 @@
+{
+  "providers": {
+    "mode": "replace",
+    "redirectOnSingle": false,
+    "entries": [
+      {
+        "name": "sso",
+        "title": "Log In",
+        "url": "/api/login"
+      }
+    ]
+  }
+}
