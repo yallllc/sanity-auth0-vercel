@@ -2,7 +2,7 @@
 
 This example project uses [Sanity.io](https://www.sanity.io/docs/) hosted on [Vercel](https://vercel.com/docs), with custom login through [Auth0](https://auth0.com/docs/api/).
 
-To get Auth0 SSO login workoing on Vercel Serverless, the project leverages the [nextjs-auth0](https://github.com/auth0/nextjs-auth0) module despite the fact that this is not a Next.js project. (The peer dependency is not truly needed, so it works without adding Next.) This module handles login server-side using cookies and is a way to use Vercel serverless instead of a separate Express server.
+To get Auth0 SSO login working on Vercel Serverless, the project leverages the [nextjs-auth0](https://github.com/auth0/nextjs-auth0) module despite the fact that this is not a Next.js project. (The peer dependency is not truly needed, so it works without adding Next.) This module handles login server-side using cookies and is a way to use Vercel serverless instead of a separate Express server.
 
 :skull_and_crossbones: **This repo is published for discussion purposes.** It is not intended as a fully-working example and code here may not work correctly, so use at your own risk. :skull_and_crossbones:
 
