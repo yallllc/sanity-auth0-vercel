@@ -11,7 +11,7 @@ yarn-error.log*
 /.changelog
 .npm/
 yarn.lock
-.vercel
 
-# See README for how to pull down vars from Vercel.
-.env*
+.env
+
+.vercel

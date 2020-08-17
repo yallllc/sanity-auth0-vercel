@@ -28,10 +28,8 @@ These both rely on Express, which makes this Vercel-based example unique, at tim
 
 1. A custom `config/@sanity/default-login.json` directs user click to:
 2. `/api/login` -> Auth0
-3. `/api/on_logged_in` (requires Auth0 CORS domain settings)
-4. `/api/do_sanity_login` (extra redirect due to `nextjs-auth0` implementation)
-5. Tokenized, single-use Sanity Studio redirect
+3. `/api/on_logged_in` (requires Auth0 CORS domain settings) calls `auth0.handleCallback` and uses its `onUserLoaded` option to perform Sanity login
 
-The main work is done in `/api/do_sanity_login`. This file looks up Auth0 user information from the cookie, then uses custom roles set up in Auth0 as user metadata to add/remove the user to custom Sanity groups, then authorizes the Sanity session.
+The main work is done in `onUserLoaded`. This file uses custom roles set up in Auth0 as user metadata to add/remove the user to custom Sanity groups, then authorizes the Sanity session.
 
 A basic migration to update group permissions is also included in the `migrations` folder.
