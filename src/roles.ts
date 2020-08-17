@@ -24,15 +24,24 @@ export const removeFromGroups = {
  * Configures specific access permissions for each role.
  */
 export const grantsByRole = {
+  /*
+  A few notes on basic content filters:
+  
+  filter('_id in path("**")') // <= same as path: '**' (includes dots in paths)
+  
+  filter('_id in path("*")') // <= only published
+  
+  filter('_id in path("drafts.*")') // <= only drafts
+  */
   [Role.Admin]: [
     {
-      path: `*`,
+      path: `**`,
       permissions: commonPermissions.all,
     },
   ],
   [Role.Editor]: [
     {
-      path: `*`,
+      path: `**`,
       permissions: commonPermissions.all,
     },
     // Later we can set up filters to limit author permissions, e.g.:

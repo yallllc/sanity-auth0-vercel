@@ -43,23 +43,20 @@ export default async function on_logged_in(req, res) {
 
         // Create all groups if they don't exist yet, or add a new one
 
-        const testGroup = await client.getDocument(`_.groups.${role}`);
-        if (!testGroup) {
-          for (let r of roleStrings) {
-            await client.createIfNotExists({
-              _id: `_.groups.${r}`,
-              _type: 'system.group',
-              grants: grantsByRole[r],
-              members: [],
-            });
-            const g = await client.getDocument(`_.groups.${r}`);
-            console.log('created group', g);
-          }
+        for (let r of roleStrings) {
+          await client.createIfNotExists({
+            _id: `_.groups.${r}`,
+            _type: 'system.group',
+            grants: grantsByRole[r],
+            members: [],
+          });
+          const g = await client.getDocument(`_.groups.${r}`);
+          console.log('created group', g);
         }
 
         // Include user in group
         const group = await client.getDocument(`_.groups.${role}`);
-        if (!group.members || !group.members.includes(userId)) {
+        if (!group || !group.members || !group.members.includes(userId)) {
           await client
             .patch(group._id)
             .setIfMissing({ members: [] })
